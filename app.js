@@ -1,4 +1,6 @@
 let blockCount = 257;
+var container = document.querySelector("#container");
+var btnClear = document.querySelector(".btnClear");
 
 function getRandomColor() {
     var letters = '0123456789ABCDEF';
@@ -10,17 +12,14 @@ function getRandomColor() {
  }
 
 function generateDiv(num) {
-    var container = document.querySelector("#container");
-
     for(var i = 1; i < num; i++) {
       blockDiv = document.createElement("div");
       blockDiv.className = `block`;
       blockDiv.style.border = "thin solid black";
-      blockDiv.style.width = "10px";
-      blockDiv.style.height = "10px";
+      blockDiv.style.width = "40px";
+      blockDiv.style.height = "40px";
       container.append(blockDiv);
     }
-
 }
 
 generateDiv(blockCount);
@@ -33,4 +32,8 @@ allDiv.forEach(function(oneDiv){
     })
 })
 
-  
+btnClear.addEventListener("click", function(){
+    allDiv.forEach(function(oneDiv){
+        oneDiv.style.background = "white";
+    })
+})
